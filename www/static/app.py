@@ -1,4 +1,4 @@
-import logging: logging.basicConfig(level=logging.INFO)
+import logging; logging.basicConfig(level=logging.INFO)
 
 import asyncio, os, json, time
 from datetime import datetime
@@ -8,7 +8,7 @@ from aiohttp import web
 def index(requst):
 	return web.Response(body=b'<h1>Awesome</h1>')
 
-@asyncio.corutine
+@asyncio.coroutine
 def init(loop):
 	app = web.Application(loop=loop)
 	app.router.add_route('GET','/',index)
@@ -17,5 +17,5 @@ def init(loop):
 	return srv
 
 loop =asyncio.get_event_loop()
-loop.run_until_complate(init(loop))
+loop.run_until_complete(init(loop))
 loop.run_forever()
